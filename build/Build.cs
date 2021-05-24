@@ -15,18 +15,10 @@ using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using Nuke.Tasks.Build;
 using Nuke.Tasks.DotNet;
-using Nuke.Tasks.TaskInterfaces;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
-class Build : NukeBuild, ICaptureStats, IClean, ICompile
+class Build : BaseBuild, IClean
 {
-    public static int Main () => Execute<Build>(x => x.Bootstrap);
-
-    Target Bootstrap => _ => _
-        .TryBefore<ICaptureStatsTarget>()
-        .Executes(() =>
-        {
-            Logger.Info("Starting build...");
-        });
+    public static int Main() => Execute<Build>(x => x.Bootstrap);
 }

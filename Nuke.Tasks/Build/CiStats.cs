@@ -1,14 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Text.Json;
 using Nuke.Common;
+using Nuke.Common.Execution;
 
-namespace Nuke.Tasks
+namespace Nuke.Tasks.Build
 {
     public class CiStats
     {
         public DateTime buildStart { get; set; }
+        public DateTime buildCompleted { get; set; }
+        public bool buildSucceeded { get; set; }
+        public List<BuildStep> skippedTargets { get; }
+        public List<BuildStep> failedTargets { get; }
+        public List<BuildStep> succeededTargets { get; }
+        public List<BuildStep> abortedTargets { get; }
         public String timeZone { get; set; }
         public String requestedBy { get; set; }
         public String ciBuildId { get; set; }
@@ -37,6 +46,11 @@ namespace Nuke.Tasks
             try
             {
                 buildStart = DateTime.UtcNow;
+                skippedTargets = new List<BuildStep>();
+                failedTargets = new List<BuildStep>();
+                succeededTargets = new List<BuildStep>();
+                abortedTargets = new List<BuildStep>();
+
                 timeZone = System.TimeZoneInfo.Local.ToString();
                 requestedBy = Environment.UserName;
                 machineName = Environment.MachineName;
@@ -132,6 +146,18 @@ namespace Nuke.Tasks
                 }
             }
             searcher.Dispose();
+        }
+        override public string ToString()
+        {
+            return JsonSerializer.Serialize<CiStats>(this);
+        }
+
+        public void PopulateTargetOutcomesFromNukeTargets(IReadOnlyCollection<ExecutableTarget> nukeTargets, List<BuildStep> buildSteps)
+        {
+            foreach (ExecutableTarget target in nukeTargets)
+            {
+                buildSteps.Add(new BuildStep { name = target.Name, duration = (long) target.Duration.TotalSeconds });
+            }
         }
     }
 }
