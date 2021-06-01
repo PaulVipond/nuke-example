@@ -1,0 +1,10 @@
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\obj\Debug\Nuke.Tasks.csprojAssemblyReference.cache
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\obj\Debug\RefitStubs.g.cs
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\obj\Debug\Nuke.Tasks.AssemblyInfoInputs.cache
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\obj\Debug\Nuke.Tasks.AssemblyInfo.cs
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\obj\Debug\Nuke.Tasks.csproj.CoreCompileInputs.cache
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\bin\Debug\Nuke.Tasks.deps.json
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\bin\Debug\Nuke.Tasks.dll
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\bin\Debug\Nuke.Tasks.pdb
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\obj\Debug\Nuke.Tasks.dll
+E:\Projects\Clients\FastMarkets\Code\nuke-example\Nuke.Tasks\obj\Debug\Nuke.Tasks.pdb
